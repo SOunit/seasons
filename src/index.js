@@ -8,22 +8,24 @@ class App extends Component {
     // super refers to constructor of parent class
     super(props);
 
+    // THIS IS THE ONLY TIME we ddo direct assignment
+    // to this.state
     this.state = { latitude: null };
-  }
 
-  render() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position);
+        this.setState({ latitude: position.coords.latitude });
       },
       (err) => {
         console.log(err);
       }
     );
+  }
 
+  render() {
     return (
       <div>
-        <p>test</p>
+        Latitude: {this.state.latitude}
         <SeasonDisplay />
       </div>
     );
