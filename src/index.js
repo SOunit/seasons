@@ -1,6 +1,5 @@
 import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay';
 
 class App extends Component {
   // initialize function
@@ -11,7 +10,11 @@ class App extends Component {
     // THIS IS THE ONLY TIME we ddo direct assignment
     // to this.state
     this.state = { latitude: null, errorMessage: '' };
+  }
 
+  // this method is for initialize component
+  // same with constructor, but this is recommended
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({ latitude: position.coords.latitude });
