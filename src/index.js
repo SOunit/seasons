@@ -24,13 +24,18 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        Latitude: {this.state.latitude} <br />
-        Error: {this.state.errorMessage}
-        <SeasonDisplay />
-      </div>
-    );
+    if (this.state.errorMessage && !this.state.latitude) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    if (!this.state.errorMessage && this.state.latitude) {
+      return (
+        <div>
+          Latitude: {this.state.latitude} <br />
+        </div>
+      );
+    }
+    return <div>Loading!</div>;
   }
 }
 
