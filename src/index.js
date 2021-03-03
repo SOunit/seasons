@@ -10,7 +10,7 @@ class App extends Component {
 
     // THIS IS THE ONLY TIME we ddo direct assignment
     // to this.state
-    this.state = { latitude: null };
+    this.state = { latitude: null, errorMessage: '' };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -18,6 +18,7 @@ class App extends Component {
       },
       (err) => {
         console.log(err);
+        this.setState({ errorMessage: err.message });
       }
     );
   }
@@ -25,7 +26,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        Latitude: {this.state.latitude}
+        Latitude: {this.state.latitude} <br />
+        Error: {this.state.errorMessage}
         <SeasonDisplay />
       </div>
     );
