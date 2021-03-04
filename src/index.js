@@ -2,15 +2,19 @@ import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends Component {
-  // initialize function
-  constructor(props) {
-    // super refers to constructor of parent class
-    super(props);
+  // // initialize function
+  // constructor(props) {
+  //   // super refers to constructor of parent class
+  //   super(props);
 
-    // THIS IS THE ONLY TIME we ddo direct assignment
-    // to this.state
-    this.state = { latitude: null, errorMessage: '' };
-  }
+  //   // THIS IS THE ONLY TIME we ddo direct assignment
+  //   // to this.state
+  //   this.state = { latitude: null, errorMessage: '' };
+  // }
+
+  // new, better sysntax
+  // babel compile them to constructor syntax
+  state = { latitude: null, errorMessage: '' };
 
   // this method is for initialize component
   // same with constructor, but this is recommended
